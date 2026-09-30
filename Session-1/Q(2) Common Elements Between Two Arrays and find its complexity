@@ -1,0 +1,10 @@
+a = list(map(int, input("Enter first array: ").split()))
+b = list(map(int, input("Enter second array: ").split()))
+print("Common elements:")
+for x in a:
+    if x in b:
+        print(x, end=" ")
+
+
+Space complexity:O(N)
+Time complexity:O(N^2)
