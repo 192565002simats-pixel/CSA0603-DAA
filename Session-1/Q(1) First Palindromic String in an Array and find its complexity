@@ -1,15 +1,14 @@
 n = int(input("Enter number of strings: "))
 a = []
-print("Enter strings:")
 for i in range(n):
-    a.append(input())
-for i in range(n):
-    if a[i] == a[i][::-1]:
-        print("First Palindrome:", a[i])
+    s = input("Enter string: ")
+    a.append(s)
+for s in a:
+    if s == s[::-1]:
+        print("First Palindrome:", s)
         break
 else:
     print("No Palindrome Found")
-
 
 
 Space complexity:O(N)
