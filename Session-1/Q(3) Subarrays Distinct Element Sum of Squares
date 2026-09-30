@@ -1,0 +1,10 @@
+a = list(map(int, input("Enter array: ").split()))
+total = 0
+for i in range(len(a)):
+    s = set()
+    for j in range(i, len(a)):
+        s.add(a[j])
+        for x in s:
+            total += x * x
+
+print("Sum:", total)
