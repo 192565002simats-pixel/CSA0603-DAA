@@ -1,0 +1,6 @@
+a = list(map(int, input("Enter array: ").split()))
+max_element = a[0]
+for x in a:
+    if x > max_element:
+        max_element = x
+print("Maximum element:", max_element)
