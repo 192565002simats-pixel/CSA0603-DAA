@@ -9,3 +9,7 @@ for i in range(n):
         break
 else:
     print("No Palindrome Found")
+
+
+Space complexity:O(N)
+Time Complexity:O(N^2)
