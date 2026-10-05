@@ -1,0 +1,12 @@
+n = int(input("Enter number of elements: "))
+a = list(map(int, input("Enter the elements: ").split()))
+
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if a[j] > a[j + 1]:
+            a[j], a[j + 1] = a[j + 1], a[j]
+
+print("Sorted array:", a)
+
+Time Complexity: O(n^2)
+Space Complexity: O(1)
