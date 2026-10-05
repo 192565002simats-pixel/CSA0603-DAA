@@ -9,3 +9,5 @@ for x in a:
         unique.append(x)
 
 print("Unique elements:", unique)
+
+Space Complexity:O(n)
