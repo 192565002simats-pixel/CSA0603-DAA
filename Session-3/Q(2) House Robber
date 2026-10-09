@@ -1,0 +1,19 @@
+def rob(nums):
+    if len(nums) == 1:
+        return nums[0]
+
+    def helper(arr):
+        prev2 = 0
+        prev1 = 0
+
+        for money in arr:
+            curr = max(prev1, prev2 + money)
+            prev2 = prev1
+            prev1 = curr
+
+        return prev1
+
+    return max(helper(nums[:-1]), helper(nums[1:]))
+
+nums = list(map(int, input("Enter house money: ").split()))
+print("Maximum money:", rob(nums))
