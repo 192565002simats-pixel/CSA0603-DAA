@@ -1,0 +1,31 @@
+def findPaths(m, n, N, i, j):
+    dp = [[0] * n for _ in range(m)]
+    dp[i][j] = 1
+    ans = 0
+
+    for _ in range(N):
+        temp = [[0] * n for _ in range(m)]
+
+        for r in range(m):
+            for c in range(n):
+                if dp[r][c] > 0:
+                    ways = dp[r][c]
+                    for dr, dc in [(1,0), (-1,0), (0,1), (0,-1)]:
+                        nr, nc = r + dr, c + dc
+
+                        if nr < 0 or nr >= m or nc < 0 or nc >= n:
+                            ans += ways
+                        else:
+                            temp[nr][nc] += ways
+
+        dp = temp
+
+    return ans
+
+m = int(input("Enter rows: "))
+n = int(input("Enter columns: "))
+N = int(input("Enter steps: "))
+i = int(input("Enter starting row: "))
+j = int(input("Enter starting column: "))
+
+print("Output:", findPaths(m, n, N, i, j))
