@@ -1,0 +1,26 @@
+m = int(input("Enter rows: "))
+n = int(input("Enter columns: "))
+
+board = []
+for i in range(m):
+    board.append(list(map(int, input().split())))
+
+new = [[0] * n for i in range(m)]
+
+for i in range(m):
+    for j in range(n):
+        count = 0
+
+        for x in range(max(0, i-1), min(m, i+2)):
+            for y in range(max(0, j-1), min(n, j+2)):
+                if (x, y) != (i, j):
+                    count += board[x][y]
+
+        if board[i][j] == 1:
+            if count == 2 or count == 3:
+                new[i][j] = 1
+        else:
+            if count == 3:
+                new[i][j] = 1
+
+print(new)
