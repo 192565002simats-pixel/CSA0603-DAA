@@ -1,0 +1,26 @@
+
+points = []
+n = int(input("Enter number of points: "))
+
+for i in range(n):
+    x, y = map(int, input("Enter x and y: ").split())
+    points.append((x, y))
+
+hull = set()
+
+for i in range(n):
+    for j in range(i + 1, n):
+        a, b = points[i], points[j]
+        cross = []
+
+        for k in range(n):
+            if k != i and k != j:
+                c = points[k]
+                cross.append((b[0]-a[0])*(c[1]-a[1]) -
+                             (b[1]-a[1])*(c[0]-a[0]))
+
+        if all(x >= 0 for x in cross) or all(x <= 0 for x in cross):
+            hull.add(a)
+            hull.add(b)
+
+print("Convex Hull:", list(hull))
