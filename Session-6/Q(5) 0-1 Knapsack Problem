@@ -1,0 +1,22 @@
+
+from itertools import combinations
+
+n = int(input("Enter number of items: "))
+weights = list(map(int, input("Enter weights: ").split()))
+values = list(map(int, input("Enter values: ").split()))
+capacity = int(input("Enter capacity: "))
+
+maximum = 0
+best_items = []
+
+for r in range(n + 1):
+    for items in combinations(range(n), r):
+        weight = sum(weights[i] for i in items)
+        value = sum(values[i] for i in items)
+
+        if weight <= capacity and value > maximum:
+            maximum = value
+            best_items = list(items)
+
+print("Optimal Selection:", best_items)
+print("Total Value:", maximum)
