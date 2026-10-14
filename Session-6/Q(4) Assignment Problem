@@ -1,0 +1,24 @@
+
+from itertools import permutations
+
+n = int(input("Enter number of workers: "))
+cost = []
+
+for i in range(n):
+    row = list(map(int, input("Enter costs: ").split()))
+    cost.append(row)
+
+minimum = float('inf')
+
+for p in permutations(range(n)):
+    total = sum(cost[i][p[i]] for i in range(n))
+
+    if total < minimum:
+        minimum = total
+        best = p
+
+print("Optimal Assignment:")
+for i in range(n):
+    print("Worker", i+1, "-> Task", best[i]+1)
+
+print("Total Cost:", minimum)
