@@ -1,0 +1,28 @@
+
+import math
+from itertools import permutations
+
+def distance(a, b):
+    return math.dist(a, b)
+
+n = int(input("Enter number of cities: "))
+cities = []
+
+for i in range(n):
+    x, y = map(int, input("Enter city coordinates: ").split())
+    cities.append((x, y))
+
+start = cities[0]
+minimum = float('inf')
+
+for p in permutations(cities[1:]):
+    path = [start] + list(p) + [start]
+    total = sum(distance(path[i], path[i+1])
+                for i in range(len(path)-1))
+
+    if total < minimum:
+        minimum = total
+        best_path = path
+
+print("Shortest Distance:", minimum)
+print("Shortest Path:", best_path)
