@@ -1,0 +1,17 @@
+
+import math
+n = int(input("Enter number of points: "))
+points = []
+for i in range(n):
+    x, y = map(int, input("Enter x and y: ").split())
+    points.append((x, y))
+minimum = float('inf')
+for i in range(n):
+    for j in range(i + 1, n):
+        d = math.dist(points[i], points[j])
+        if d < minimum:
+            minimum = d
+            pair = (points[i], points[j])
+
+print("Closest pair:", pair)
+print("Minimum distance:", minimum)
